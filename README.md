@@ -5,13 +5,13 @@ This is a collection of useful Linux/shell-commands
 Thanks to NetworkChuck (https://www.youtube.com/watch?v=ZhMw53Ud2tY)
 
 ### Step 1: Enable automatic updates
-* Manual Updates:
+Manual Updates:
 ```sh
 apt update
 apt dist-upgrade
 ``` 
 
-* Automatic Updates:
+Automatic Updates:
 ```sh
 apt install unattended-upgrades
 dpkg-reconfigure --priority=low unattended-upgrades
@@ -44,20 +44,37 @@ PermitRootLogin no
 PasswordAuthentication no (if you want to only permit certification-login)
 ```
 
+### Step 5: Firewall it up
+See open ports
+```sh
+sudo ss -tulpn
+```
+
+Install, configure and enable ufw
+```sh
+apt install ufw
+```
+if unable to find ufw, add repository (debian):
+```sh
+add-apt-repository "deb http://http.debian.net/debian/ jessie main contrib non-free"
+```
+See UFW status:
+```sh
+sudo ufw status
+```
+Allow port through firewall:
+```sh
+sudo ufw allow 22
+```
+Start firewall:
+```sh
+sudo ufw enable
+```
+Restart firewall:
+```sh
+sudo ufw reload
+```
 
 
 
-Upload your Public key to the your Linux Server (Windows)
-scp $env:USERPROFILE/.ssh/id_rsa.pub {username}@{server ip}:~/.ssh/authorized_keys
 
-Upload your Public key to the your Linux Server (MAC)
-scp ~/.ssh/id_rsa.pub {username}@{server ip}:~/.ssh/authorized_keys
-
-Upload your Public key to the your Linux Server (LINUX)
-ssh-copy-id {username}@{server ip}
-
-
-STEP 4 - Lockdown Logins
-Edit the SSH config file
-
-sudo nano /etc/ssh/sshd_config
