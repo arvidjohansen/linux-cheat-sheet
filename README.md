@@ -33,6 +33,7 @@ mkdir ~/.ssh && chmod 700 ~/.ssh
 ssh-keygen -b 4096
 ```
 3) Upload your Public key to the your Linux Server (Windows)
+
 ```sh
 scp $env:USERPROFILE/.ssh/id_rsa.pub {username}@{server ip}:~/.ssh/authorized_keys
 ``` 
@@ -75,6 +76,24 @@ Restart firewall:
 sudo ufw reload
 ```
 
+
+## Installing PHP
+Following https://computingforgeeks.com/how-to-install-latest-php-on-debian/
+### Installing PHP
+```sh
+sudo apt -y install lsb-release apt-transport-https ca-certificates 
+sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+sudo apt update
+sudo apt -y install php7.4
+sudo apt install php libapache2-mod-php php-mysql
+```
+### Installing PHP-mysql connector
+```
+sudo apt install php7.4-mysqli
+```
+
+## Installing MySQL
 
 
 
