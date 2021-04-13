@@ -76,10 +76,19 @@ Restart firewall:
 sudo ufw reload
 ```
 
+## Installing Apache
+Following https://www.tecmint.com/install-apache-with-virtual-hosts-on-debian-10/
+```sh
+sudo apt install apache2 -y #install
+sudo systemctl start apache2 #start service
+sudo systemctl enable apache2 #start on boot
+
+sudo ufw allow 80/tcp #allow through firewall
+```
 
 ## Installing PHP
 Following https://computingforgeeks.com/how-to-install-latest-php-on-debian/
-### Installing PHP
+  
 ```sh
 sudo apt -y install lsb-release apt-transport-https ca-certificates 
 sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
