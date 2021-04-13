@@ -119,3 +119,14 @@ FLUSH PRIVILEGES;
 sudo apt install php7.4-mysqli
 ```
 
+## Installing phpMyAdmin
+Following
+#https://phoenixnap.com/kb/how-to-install-phpmyadmin-on-debian-10
+#sudo apt install php php-cgi php-mysqli php-pear php-mbstring php-gettext libapache2-mod-php php-common php-phpseclib php-mysql -y #do I need all these?
+
+https://computingforgeeks.com/install-phpmyadmin-with-apache-on-debian-10-buster/
+
+
+
+
+
