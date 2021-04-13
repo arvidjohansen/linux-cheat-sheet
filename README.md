@@ -105,7 +105,7 @@ wget http://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb
 sudo apt install ./mysql-apt-config_0.8.13-1_all.deb
 sudo apt-get install mysql-community-server
 sudo systemctl status mysql
-``
+```
 Create database and user
 ```sql
 CREATE DATABASE stock;
