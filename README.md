@@ -88,12 +88,25 @@ sudo apt update
 sudo apt -y install php7.4
 sudo apt install php libapache2-mod-php php-mysql
 ```
-### Installing PHP-mysql connector
+
+
+## Installing MySQL
+```sh
+wget http://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb
+sudo apt install ./mysql-apt-config_0.8.13-1_all.deb
+sudo apt-get install mysql-community-server
+sudo systemctl status mysql
+``
+Create database and user
+```sql
+CREATE DATABASE stock;
+CREATE USER 'stock'@'localhost' IDENTIFIED BY 'StockFish123';
+GRANT ALL PRIVILEGES ON stock.* TO 'stock'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+## Installing PHP-mysql connector
 ```
 sudo apt install php7.4-mysqli
 ```
-
-## Installing MySQL
-
-
 
