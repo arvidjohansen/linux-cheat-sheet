@@ -111,7 +111,11 @@ When finished, enable site with command:
 ```sh
 a2ensite site.name.conf
 ```
-and restart service with 
+Disable with
+```sh
+a2dissite site.name.conf
+```
+Always restart service after making changes: 
 ```sh
 systemctl reload apache2
 ```
