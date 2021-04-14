@@ -86,6 +86,36 @@ sudo systemctl enable apache2 #start on boot
 sudo ufw allow 80/tcp #allow through firewall
 ```
 
+## Configuring virtual hosts
+Always configure virtual hosts in /etc/apache2/sites-available/
+
+Example with domain name containing æ,ø,å
+```sh
+<VirtualHost *:80>
+	# Actual domain name is alpha.bodø.city but since it contains 
+	# non-ascii characters we have to use punycode, more info:
+	# http://handbok.dinstudio.no/0/37/o-a-i-domenenavn/
+	# https://www.punycoder.com/
+	
+        ServerName alpha.xn--bod-2na.city
+        ServerAlias www.alpha.xn--bod-2na.city
+
+        ServerAdmin arvid@bodø.city
+        DocumentRoot /var/www/alpha
+
+	ErrorLog ${APACHE_LOG_DIR}/error-alpha.log
+        CustomLog ${APACHE_LOG_DIR}/access-alpha.log combined
+</VirtualHost>
+```
+When finished, enable site with command:
+```sh
+a2ensite site.name.conf
+```
+and restart service with 
+```sh
+systemctl reload apache2
+```
+
 ## Installing PHP
 Following https://computingforgeeks.com/how-to-install-latest-php-on-debian/
   
@@ -97,6 +127,8 @@ sudo apt update
 sudo apt -y install php7.4
 sudo apt install php libapache2-mod-php php-mysql
 ```
+
+
 
 
 ## Installing MySQL
