@@ -134,6 +134,7 @@ a2dissite site.name.conf
 
 ## Limiting access with .htaccess files
 https://www.linode.com/docs/guides/how-to-set-up-htaccess-on-apache/
+https://phoenixnap.com/kb/how-to-set-up-enable-htaccess-apache
 By creating a file called .htaccess in a directory served by apache,
 you can limit access to files and folders based on a pattern i.e. disallowing .git folder:
 
