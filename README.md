@@ -132,6 +132,22 @@ Disable site with:
 a2dissite site.name.conf
 ```
 
+## Limiting access with .htaccess files
+By creating a file called .htaccess in a directory served by apache,
+you can limit access to files and folders based on a pattern i.e. disallowing .git folder:
+
+```sh
+RedirectMatch 404 /\.git
+```
+
+But first you have to enable it by adding the following to your vhost conf:
+```sh
+<Directory /var/www/html-templates>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+```
 
 ## Installing PHP
 Following https://computingforgeeks.com/how-to-install-latest-php-on-debian/
