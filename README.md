@@ -89,7 +89,7 @@ sudo ufw allow 80/tcp #allow through firewall
 ## Configuring virtual hosts
 Always configure virtual hosts in /etc/apache2/sites-available/
 
-Example with domain name containing æ,ø,å
+Example with domain name containing æ,ø,å and files in /var/www/alpha
 ```sh
 <VirtualHost *:80>
 	# Actual domain name is alpha.bodø.city but since it contains 
@@ -111,14 +111,15 @@ When finished, enable site with command:
 ```sh
 a2ensite site.name.conf
 ```
-Disable with
-```sh
-a2dissite site.name.conf
-```
 Always restart service after making changes: 
 ```sh
 systemctl reload apache2
 ```
+Disable site with:
+```sh
+a2dissite site.name.conf
+```
+
 
 ## Installing PHP
 Following https://computingforgeeks.com/how-to-install-latest-php-on-debian/
