@@ -139,6 +139,10 @@ you can limit access to files and folders based on a pattern i.e. disallowing .g
 ```sh
 RedirectMatch 404 /\.git
 ```
+or disallowing directory listing (showing files and folders if no index-file is present):
+```sh
+Options -Indexes
+```
 
 But first you have to enable it by adding the following to your vhost conf:
 ```sh
