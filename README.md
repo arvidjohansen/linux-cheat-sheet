@@ -154,6 +154,15 @@ But first you have to enable it by adding the following to your vhost conf:
 </Directory>
 ```
 
+## HTTPS / Creating a SSL certificate
+Install Certbot
+```sh
+sudo add-apt-repository ppa:certbot/certbot
+apt-get install software-properties-common
+apt install python-certbot-apache
+certbot --apache -d templates.arvid.software
+```
+
 ## Installing PHP
 Following https://computingforgeeks.com/how-to-install-latest-php-on-debian/
   
