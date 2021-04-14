@@ -1,6 +1,18 @@
 # linux-cheat-sheet
 This is a collection of useful Linux/shell-commands
 
+## Configuring terminal for root
+To enable terminal-coloring for root, open /root/.bashrc
+and uncomment the following lines:
+```sh
+# You may uncomment the following lines if you want `ls' to be colorized:
+ export LS_OPTIONS='--color=auto'
+ eval "`dircolors`"
+ alias ls='ls $LS_OPTIONS'
+ alias ll='ls $LS_OPTIONS -l'
+ alias l='ls $LS_OPTIONS -lA'
+```
+
 ## Securing the system
 Thanks to NetworkChuck (https://www.youtube.com/watch?v=ZhMw53Ud2tY)
 
