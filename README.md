@@ -146,7 +146,7 @@ or disallowing directory listing (showing files and folders if no index-file is 
 Options -Indexes
 ```
 
-But first you have to enable it by adding the following to your vhost conf:
+But first you have to enable it by adding the following to your vhost conf (inside virtualhost definition):
 ```sh
 <Directory /var/www/html-templates>
     Options Indexes FollowSymLinks
