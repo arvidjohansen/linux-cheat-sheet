@@ -4,11 +4,11 @@ Welcome!
 This script will generate sql for creating a database, user,
 and giving the user full permissions on the specified host like this:
 
-*******************************************************
+********************************************
 CREATE DATABASE <dbname>;
 CREATE USER '<usr>'@'<host>' IDENTIFIED BY '<pw>';
 GRANT ALL PRIVILEGES ON <dbname>.* TO '<usr>'@'<host>';
-*******************************************************
+********************************************
 """
 
 params = {
@@ -34,10 +34,10 @@ def create_sql():
     return sql
 
 def print_sql(sql):
-    print('*******************************************************\n')
+    print('********************************************\n')
     for s in sql:
         print(sql[s])
-    print('\n*******************************************************')
+    print('\n********************************************')
     
 def main():
     print(welcome_msg)

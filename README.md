@@ -176,22 +176,48 @@ sudo apt -y install php7.4
 sudo apt install php libapache2-mod-php php-mysql
 ```
 
-
-
-
 ## Installing MySQL
 ```sh
 wget http://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb
 sudo apt install ./mysql-apt-config_0.8.13-1_all.deb
+#apt update
+#apt upgrade should work
 sudo apt-get install mysql-community-server
 sudo systemctl status mysql
 ```
-Create database and user
+### Creating database and user
 ```sql
 CREATE DATABASE stock;
 CREATE USER 'stock'@'localhost' IDENTIFIED BY 'StockFish123';
 GRANT ALL PRIVILEGES ON stock.* TO 'stock'@'localhost';
 FLUSH PRIVILEGES;
+```
+or use the built-in python-script to generate SQL code for you:
+```sql
+C:\Users\Arvid\Desktop\git\linux-cheat-sheet>python create_mysql_db_and_usr.py
+
+Welcome!
+
+This script will generate sql for creating a database, user,
+and giving the user full permissions on the specified host like this example:
+
+********************************************
+CREATE DATABASE <dbname>;
+CREATE USER '<usr>'@'<host>' IDENTIFIED BY '<pw>';
+GRANT ALL PRIVILEGES ON <dbname>.* TO '<usr>'@'<host>';
+********************************************
+
+Enter value for host (default: localhost):
+Enter value for db (default: ): phpmyadmin
+Enter value for usr (default: ): phpmyadmin
+Enter value for pw (default: ): Php@Myadm123!
+********************************************
+
+CREATE DATABASE phpmyadmin;
+CREATE USER 'phpmyadmin'@'localhost' IDENTIFIED BY 'Php@Myadm123!';
+GRANT ALL PRIVILEGES ON phpmyadmin.* TO 'phpmyadmin'@'localhost';
+
+********************************************
 ```
 
 ## Installing PHP-mysql connector
@@ -205,6 +231,8 @@ Following
 #sudo apt install php php-cgi php-mysqli php-pear php-mbstring php-gettext libapache2-mod-php php-common php-phpseclib php-mysql -y #do I need all these?
 
 https://computingforgeeks.com/install-phpmyadmin-with-apache-on-debian-10-buster/
+
+Do we reaaally need phpmyadmin?
 
 
 
