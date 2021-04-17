@@ -235,6 +235,15 @@ https://computingforgeeks.com/install-phpmyadmin-with-apache-on-debian-10-buster
 Do we reaaally need phpmyadmin?
 
 
+## PGP Encryption
+```sh
+sudo apt install gnupg2 gpa
+gpg --full-generate-key #1 enter #4096 enter #0 enter #y #<name and email> #o enter 
+#enter passphrase
+
+sudo gpa
+
+```
 
 
 
