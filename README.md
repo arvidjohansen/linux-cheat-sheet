@@ -247,6 +247,7 @@ sudo gpa
 
 # Useful applications
 ## Tmux (terminal multiplexer)
+[hamvocke.com - quick and easy guide to tmux](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
 >Tmux allows you to split your terminal in many ways
 >
 ### Installation
@@ -254,15 +255,31 @@ sudo gpa
 sudo apt install tmux
 ```
 ### Usage
+Commands:  
 `tmux` creates a new tmux-session with a nice all-green status bar at the bottom   
 `tmux new -s monitoring` creates a new session called "monitoring"
 `exit` exits a tmux-session  
-`tmux -l` lists active tmux-sessions   
+`tmux ls` lists active tmux-sessions   
 `tmux attach -t 0` attaches to session id 0  
 `tmux attach -t monitoring` attaches to session with name "monitoring"  
+
+Keyboard shortcuts:  
 `ctrl + b + %` splits screen vertically  
 `ctrl + b + "` splits screen horizontally  
 `ctrl + b + d` disconnects from the current session
+
+Keyboard shortcut-commands:
+`ctrl + b + :` to open the command prompt   
+``` 
+:resize-pane -D (Resizes the current pane down)
+:resize-pane -U (Resizes the current pane upward)
+:resize-pane -L (Resizes the current pane left)
+:resize-pane -R (Resizes the current pane right)
+:resize-pane -D 10 (Resizes the current pane down by 10 cells)
+:resize-pane -U 10 (Resizes the current pane upward by 10 cells)
+:resize-pane -L 10 (Resizes the current pane left by 10 cells)
+:resize-pane -R 10 (Resizes the current pane right by 10 cells)
+```
 
 ## nload (network load)
 >Shows network in/out traffic as a nice graph   
@@ -281,8 +298,10 @@ sudo apt install tmux
 `sudo apt install s-tui` to install   
 `s-tui` to start  
 
+## iotop
+> disk activity monitoring, similar to "top" but for disk activity instead 
 
-
+`sudo iotop` to run
 
 
 
