@@ -293,7 +293,13 @@ Keyboard shortcut-commands:
 ## top
 >Shows process information similar to task manager in windows   
 
-`top` to start  
+`top` to start   
+`shift + s` write current settings to configuration file  
+
+Useful arguments:
+|Parameter|Description|
+|---|---|
+|-i|Do not show idle processes|
 
 ## s-tui
 >shows a nice graph displaying cpu-load  
@@ -305,6 +311,11 @@ Keyboard shortcut-commands:
 > disk activity monitoring, similar to "top" but for disk activity instead 
 
 `sudo iotop` to run
+Useful arguments
+|Parameter|Description|
+|---|---|
+|-o|Only show active processes (that actually does I/O)|
+|-P|Show processes instead of threads|
 
 
 # Tips & tricks
@@ -321,3 +332,16 @@ To find files CONTAINING a search string use *
 ```
 find / -name *history*
 ```
+
+## Monitoring failed login attempts
+grep "authentication failure" /var/log/auth.log | awk '{ print $13 }' | cut -b7-  | sort | uniq -c
+
+
+# Tools
+|Name|Description|
+|---|---|
+|grep|Finds information in input|
+|awk|Filters columns?|
+
+## awk
+
