@@ -266,11 +266,13 @@ Commands:
 Keyboard shortcuts:  
 `ctrl + b + %` splits screen vertically  
 `ctrl + b + "` splits screen horizontally  
-`ctrl + b + d` disconnects from the current session
+`ctrl + b + d` disconnects from the current session   
+`ctrl + b` then release the b-key and use arrows to resize window  
 
 Keyboard shortcut-commands:
 `ctrl + b + :` to open the command prompt   
 ``` 
+:set-option -g mouse on
 :resize-pane -D (Resizes the current pane down)
 :resize-pane -U (Resizes the current pane upward)
 :resize-pane -L (Resizes the current pane left)
