@@ -304,5 +304,14 @@ Keyboard shortcut-commands:
 `sudo iotop` to run
 
 
-
+# Tips & tricks
+## Searching for files - the find command
+```
+find / -name tmux.conf
+``` 
+Will search the entire file system for tmux.conf, but will spam out a whole bunch of "permission denied"-messages.  
+To avoid that use this little trick:
+```
+find / -name tmux.conf 2>&1 | grep -v "Permission denied"
+```
 
