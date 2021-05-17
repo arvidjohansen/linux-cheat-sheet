@@ -257,7 +257,7 @@ sudo apt install tmux
 ### Usage
 Commands:  
 `tmux` creates a new tmux-session with a nice all-green status bar at the bottom   
-`tmux new -s monitoring` creates a new session called "monitoring"
+`tmux new -s monitoring` creates a new session called "monitoring"  
 `exit` exits a tmux-session  
 `tmux ls` lists active tmux-sessions   
 `tmux attach -t 0` attaches to session id 0  
@@ -269,7 +269,7 @@ Keyboard shortcuts:
 `ctrl + b + d` disconnects from the current session   
 `ctrl + b` then release the b-key and use arrows to resize window  
 
-Keyboard shortcut-commands:
+Keyboard shortcut-commands:  
 `ctrl + b + :` to open the command prompt   
 ``` 
 :set-option -g mouse on
@@ -294,7 +294,9 @@ Keyboard shortcut-commands:
 >Shows process information similar to task manager in windows   
 
 `top` to start   
+`f` to open filter-settings
 `shift + s` write current settings to configuration file  
+
 
 Useful arguments:
 |Parameter|Description|
@@ -350,8 +352,13 @@ grep "authentication failure" /var/log/auth.log | awk '{ print $13 }' | cut -b7-
 |---|---|
 |grep|Finds information in input|
 |awk|Filters columns?|
+|sed||
 |wc|Word count|
+|sort||
+|cut||
+|uniq||
 
 
 ## awk
+https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
 
