@@ -273,6 +273,7 @@ Keyboard shortcut-commands:
 `ctrl + b + :` to open the command prompt   
 ``` 
 :set-option -g mouse on
+:set-option history-file ~/.bash_history 
 :resize-pane -D (Resizes the current pane down)
 :resize-pane -U (Resizes the current pane upward)
 :resize-pane -L (Resizes the current pane left)
@@ -316,4 +317,7 @@ To avoid that use this little trick:
 ```
 find / -name tmux.conf 2>&1 | grep -v "Permission denied"
 ```
-
+To find files CONTAINING a search string use *
+```
+find / -name *history*
+```
