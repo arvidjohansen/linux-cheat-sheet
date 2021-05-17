@@ -245,5 +245,45 @@ sudo gpa
 
 ```
 
+# Useful applications
+## Tmux (terminal multiplexer)
+>Tmux allows you to split your terminal in many ways
+>
+### Installation
+```
+sudo apt install tmux
+```
+### Usage
+`tmux` creates a new tmux-session with a nice all-green status bar at the bottom   
+`tmux new -s monitoring` creates a new session called "monitoring"
+`exit` exits a tmux-session  
+`tmux -l` lists active tmux-sessions   
+`tmux attach -t 0` attaches to session id 0  
+`tmux attach -t monitoring` attaches to session with name "monitoring"  
+`ctrl + b + %` splits screen vertically  
+`ctrl + b + "` splits screen horizontally  
+`ctrl + b + d` disconnects from the current session
+
+## nload (network load)
+>Shows network in/out traffic as a nice graph   
+
+`sudo apt install nload` to install   
+`nload`to start the monitoring-application  
+
+## top
+>Shows process information similar to task manager in windows   
+
+`top` to start  
+
+## s-tui
+>shows a nice graph displaying cpu-load  
+
+`sudo apt install s-tui` to install   
+`s-tui` to start  
+
+
+
+
+
 
 
