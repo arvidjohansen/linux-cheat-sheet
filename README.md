@@ -333,6 +333,14 @@ To find files CONTAINING a search string use *
 find / -name *history*
 ```
 
+## SSH keepalive
+To prevent users disconnecing from terminal, add the following lines
+to your `/etc/ssh/sshd_config`
+```
+TCPKeepAlive yes
+ClientAliveInterval 60
+```
+
 ## Monitoring failed login attempts
 grep "authentication failure" /var/log/auth.log | awk '{ print $13 }' | cut -b7-  | sort | uniq -c
 
@@ -342,6 +350,8 @@ grep "authentication failure" /var/log/auth.log | awk '{ print $13 }' | cut -b7-
 |---|---|
 |grep|Finds information in input|
 |awk|Filters columns?|
+|wc|Word count|
+
 
 ## awk
 
