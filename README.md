@@ -362,3 +362,12 @@ grep "authentication failure" /var/log/auth.log | awk '{ print $13 }' | cut -b7-
 ## awk
 https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
 
+# Resources
+
+## Cheat sheets
+1) https://cheatography.com/davechild/cheat-sheets/linux-command-line/
+
+![cs-page-1](https://i.ibb.co/hBFqC63/lin-cs-1.png)
+![cs-page-2](https://i.ibb.co/xfyS17Y/lin-cs-2.png)
+
+
