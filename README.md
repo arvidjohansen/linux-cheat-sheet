@@ -95,5 +95,27 @@ sudo apt install php7.4-mysqli
 
 ## Installing MySQL
 
+|
+## Configuring apache
 
+```sh
+nano /etc/apache2/sites-available/site1.conf
+# minimal configuration
+<VirtualHost *:80>
+DocumentRoot /var/www/site1.com
+ServerName www.site1.com
+ServerAlias site1.com
+</VirtualHost>
+```
+
+Enabling site
+
+```sh
+sudo a2ensite site1.com
+``` 
+
+Reloading apache
+```sh
+sudo systemctl restart apache2
+```
 
