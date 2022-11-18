@@ -264,9 +264,9 @@ Commands:
 `tmux attach -t monitoring` attaches to session with name "monitoring"  
 
 Keyboard shortcuts:  
+`ctrl + b + d` **disconnects** from the current session   
 `ctrl + b + %` splits screen vertically  
 `ctrl + b + "` splits screen horizontally  
-`ctrl + b + d` disconnects from the current session   
 `ctrl + b` then release the b-key and use arrows to resize window  
 
 Keyboard shortcut-commands:  
