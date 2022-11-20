@@ -397,3 +397,56 @@ The processes are spawned because VSCode tries to do some autocorrect stuff desc
 2. Search for ‘@builtin TypeScript’
 3. Disable the TypeScript and Javascript Language Features extension
 4. Reload
+
+# Bluetooth on Linux (bluetoothctl)
+`apt install bluez`
+
+`systemctl start bluetooth`
+
+All commands prepended by `bluetoothctl <command>` when done outside the interactive shell, otherwise you can do all the commands directly into the shell spawned by `bluetothctl`
+
+## Initial pairing
+`discoverable on`
+
+`scan on`
+
+`pair 78:2B:64:A2:F8:F1`
+
+`trust 78:2B:64:A2:F8:F1`
+
+If names do not show, try this:
+
+ `bluetoothctl devices | cut -f2 -d' ' | while read uuid; do bluetoothctl info $uuid; done|grep -e "Device\|Connected\|Name"`
+
+
+## Every time
+`connect 78:2B:64:A2:F8:F1`
+
+and when done:
+
+`disconnect`
+
+## Todo
+`power on`
+
+>This video is nice:
+
+[Youtube - BugsRider Bluetoth Guide](https://www.youtube.com/watch?v=Jhzqm8JKekk&ab_channel=BugsWriter)
+
+![IMG](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fstatic1.makeuseofimages.com%2Fwordpress%2Fwp-content%2Fuploads%2F2021%2F05%2Fcheck_bluetooth_service_status-1.png%3Fw%3D750%26is-pending-load%3D1%23038%3Bssl%3D1&f=1&nofb=1&ipt=86f480bac07e0884afa8c1ea6d781ae927adb1547b81d2e1f975e38391bc0cf9&ipo=images)
+
+
+# ls
+https://www.linuxcommands.site/linux-file-and-directory-commands/linux-ls-sort/
+
+
+# Mounting USB partition manually
+Identify USB-device
+lspci
+lsusb
+dmesg | less
+
+`sudo pmount /dev/sda1 /media/a`
+> partition now mounted
+
+
