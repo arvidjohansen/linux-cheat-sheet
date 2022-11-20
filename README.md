@@ -319,6 +319,20 @@ Useful arguments
 |-o|Only show active processes (that actually does I/O)|
 |-P|Show processes instead of threads|
 
+## htop
+>like top but better
+`apt install htop`
+
+## Glances
+>The best monitoring utility
+>Behaves smart
+>
+`apt install glances`
+
+![Glances picture](https://nicolargo.github.io/glances/public/images/screenshot-web.png)
+
+
+
 
 # Tips & tricks
 ## Searching for files - the find command
