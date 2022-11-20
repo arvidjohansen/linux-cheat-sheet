@@ -376,6 +376,10 @@ grep "authentication failure" /var/log/auth.log | awk '{ print $13 }' | cut -b7-
 ## awk
 https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
 
+## pstree
+`pstree -p`
+shows a tree structure of which processes spawned from where
+
 # Resources
 
 ## Cheat sheets
