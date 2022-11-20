@@ -450,3 +450,12 @@ dmesg | less
 > partition now mounted
 
 
+# Setting up VPN over SSH with Python
+[VPN SSH Python guide](https://www.xmodulo.com/how-to-set-up-vpn-over-ssh-in-linux.html)
+```sh
+sudo apt-get install sshuttle
+sudo yum install git
+git clone git://github.com/apenwarr/sshuttle
+sudo sshuttle -r user@remote_host 0.0.0.0/0 --dns
+sudo sshuttle -r user@remote_host 172.194.0.0/16 172.195.0.0/16
+```
