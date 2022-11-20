@@ -384,4 +384,12 @@ https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
 ![cs-page-1](https://i.ibb.co/hBFqC63/lin-cs-1.png)
 ![cs-page-2](https://i.ibb.co/xfyS17Y/lin-cs-2.png)
 
+# VSCode Remote SSH process memory problem
+If you use VSCode with the remote SSH plugin, you will sometimes see hanging processes even after you exit.
+These can take up a lot of memory when they pile up.
+The processes are spawned because VSCode tries to do some autocorrect stuff described [here](https://medium.com/good-robot/use-visual-studio-code-remote-ssh-sftp-without-crashing-your-server-a1dc2ef0936d)
 
+1. Hit the extensions button in VS Code (which looks like building blocks on the left toolbar)
+2. Search for ‘@builtin TypeScript’
+3. Disable the TypeScript and Javascript Language Features extension
+4. Reload
