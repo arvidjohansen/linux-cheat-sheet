@@ -263,6 +263,16 @@ Commands:
 `tmux attach -t 0` attaches to session id 0  
 `tmux attach -t monitoring` attaches to session with name "monitoring"  
 
+If tmux is running but you get the following error:
+
+>no server running on /tmp/tmux-1000/default
+
+`pkill -USR1 tmux`
+
+it works sometimes :)
+
+
+
 Keyboard shortcuts:  
 `ctrl + b + d` **disconnects** from the current session   
 `ctrl + b + %` splits screen vertically  
