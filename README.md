@@ -91,9 +91,9 @@ sudo ufw reload
 ## Installing Apache
 Following https://www.tecmint.com/install-apache-with-virtual-hosts-on-debian-10/
 ```sh
-sudo apt install apache2 -y #install
-sudo systemctl start apache2 #start service
-sudo systemctl enable apache2 #start on boot
+apt install apache2 -y #install
+systemctl start apache2 #start service
+systemctl enable apache2 #start on boot
 
 sudo ufw allow 80/tcp #allow through firewall
 ```
