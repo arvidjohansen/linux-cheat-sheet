@@ -220,6 +220,45 @@ GRANT ALL PRIVILEGES ON phpmyadmin.* TO 'phpmyadmin'@'localhost';
 ********************************************
 ```
 
+
+## Installing MariaDB
+Latest tutorial: [DigitalOcean Debian 11 MariaDB Installation](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-debian-11)
+```sh
+apt install mariadb-server
+mysql_secure_installation
+```
+
+Answer according to the tutorial on the questions that come.
+
+When you are finished you can simply
+
+```sh
+root@localhost:~# mariadb
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 36
+Server version: 10.5.15-MariaDB-0+deb11u1 Debian 11
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+
+```
+If the database I want to create is called `games`, a common way to go is to create a user with the same name that has full access to the database.
+
+Remember that database users are always created by specifying the location/hostname/IP of the user (aka the application server).
+
+However you can ignore this by specifying `*`
+
+database: games
+username: games
+password:ChangeMyPassword123
+hostname/IP if the application server: * 
+
+
+
+
 ## Installing PHP-mysql connector
 ```
 sudo apt install php7.4-mysqli
