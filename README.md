@@ -508,3 +508,10 @@ git clone git://github.com/apenwarr/sshuttle
 sudo sshuttle -r user@remote_host 0.0.0.0/0 --dns
 sudo sshuttle -r user@remote_host 172.194.0.0/16 172.195.0.0/16
 ```
+
+# Neofetch (nice looking status motd)
+
+```sh
+apt install neofetch
+echo neofetch >> ~/.bash_profile # run automatically on login
+```
