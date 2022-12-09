@@ -525,3 +525,4 @@ mkdir ~/.config/redshift
 wget https://raw.githubusercontent.com/jonls/redshift/master/redshift.conf.sample
 mv redshift.conf.sample ~/.config/redshift/redshift.conf
 ```
+
