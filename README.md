@@ -515,3 +515,13 @@ sudo sshuttle -r user@remote_host 172.194.0.0/16 172.195.0.0/16
 apt install neofetch
 echo neofetch >> ~/.bash_profile # run automatically on login
 ```
+
+# Desktop stuff
+## Redshift (blue light	filter)
+
+```sh
+apt install redshift
+mkdir ~/.config/redshift
+wget https://raw.githubusercontent.com/jonls/redshift/master/redshift.conf.sample
+mv redshift.conf.sample ~/.config/redshift/redshift.conf
+```
