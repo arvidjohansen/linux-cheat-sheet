@@ -287,7 +287,9 @@ sudo gpa
 # Useful applications
 ## Tmux (terminal multiplexer)
 [hamvocke.com - quick and easy guide to tmux](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
+
 [Nice cheat-sheet MohamedAlaa@github](https://gist.github.com/MohamedAlaa/2961058)
+
 >Tmux allows you to split your terminal in many ways
 >
 ### Installation
