@@ -529,3 +529,14 @@ wget https://raw.githubusercontent.com/jonls/redshift/master/redshift.conf.sampl
 mv redshift.conf.sample ~/.config/redshift/redshift.conf
 ```
 
+# tcpdump
+
+[hackertarget.com examples](https://hackertarget.com/tcpdump-examples/)
+
+[cyberciti.biz](https://www.cyberciti.biz/faq/tcpdump-capture-record-protocols-port/)
+
+[tcpdump tutorial daniel miessler](https://danielmiessler.com/study/tcpdump/)
+
+[tcpdump cheat sheet by packetlife](https://packetlife.net/media/library/12/tcpdump.pdf)
+
+[tcpdump cheat sheet comapitech](https://cdn.comparitech.com/wp-content/uploads/2019/06/tcpdump-cheat-sheet.webp)
