@@ -540,3 +540,38 @@ mv redshift.conf.sample ~/.config/redshift/redshift.conf
 [tcpdump cheat sheet by packetlife](https://packetlife.net/media/library/12/tcpdump.pdf)
 
 [tcpdump cheat sheet comapitech](https://cdn.comparitech.com/wp-content/uploads/2019/06/tcpdump-cheat-sheet.webp)
+
+# Pipe/redirecting output/etc | > >>
+
+redirect the output (AKA stdout) to a file:
+
+```sh
+SomeCommand > SomeFile.txt  
+```
+
+Or if you want to append data:
+
+```sh
+SomeCommand >> SomeFile.txt
+```
+
+
+If you want stderr as well use this:
+
+```sh
+SomeCommand &> SomeFile.txt  
+```
+
+or this to append:
+
+```sh
+SomeCommand &>> SomeFile.txt  
+```
+
+if you want to have both stderr and output displayed on the console and in a file use this:
+
+```sh
+SomeCommand 2>&1 | tee SomeFile.txt
+```
+
+(If you want the output only, drop the 2 above)
