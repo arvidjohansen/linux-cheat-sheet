@@ -575,3 +575,11 @@ SomeCommand 2>&1 | tee SomeFile.txt
 ```
 
 (If you want the output only, drop the 2 above)
+
+
+# PostgresQL installation on Linux (Debian 11)
+
+First install 
+```sh
+sudo apt-get -y install postgresql
+```
