@@ -614,3 +614,7 @@ else
 fi
 ```
 
+More commands: https://linuxhint.com/bash-ps1-customization/
+
+
+
