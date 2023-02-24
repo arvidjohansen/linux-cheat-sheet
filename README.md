@@ -583,3 +583,34 @@ First install
 ```sh
 sudo apt-get -y install postgresql
 ```
+
+## Hostname get / set
+
+Display hostname: 
+
+```sh
+hostnamectl
+```
+
+Change hostname:
+
+```sh
+hostnamectl set-hostname <hostname> --static 
+```
+
+Update $PS1 variable in `~/.bashrc` if you want full hostname displayed in prompt
+
+|Variable|Value|
+|--|--|
+\h|hostname (short)
+\H|hostname (full)
+
+Update from \h to \H:
+```sh
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\H:\w\$ '
+fi
+```
+
