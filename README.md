@@ -91,9 +91,9 @@ sudo ufw reload
 ## Installing Apache
 Following https://www.tecmint.com/install-apache-with-virtual-hosts-on-debian-10/
 ```sh
-sudo apt install apache2 -y #install
-sudo systemctl start apache2 #start service
-sudo systemctl enable apache2 #start on boot
+apt install apache2 -y #install
+systemctl start apache2 #start service
+systemctl enable apache2 #start on boot
 
 sudo ufw allow 80/tcp #allow through firewall
 ```
@@ -220,6 +220,45 @@ GRANT ALL PRIVILEGES ON phpmyadmin.* TO 'phpmyadmin'@'localhost';
 ********************************************
 ```
 
+
+## Installing MariaDB
+Latest tutorial: [DigitalOcean Debian 11 MariaDB Installation](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-debian-11)
+```sh
+apt install mariadb-server
+mysql_secure_installation
+```
+
+Answer according to the tutorial on the questions that come.
+
+When you are finished you can simply
+
+```sh
+root@localhost:~# mariadb
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 36
+Server version: 10.5.15-MariaDB-0+deb11u1 Debian 11
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+
+```
+If the database I want to create is called `games`, a common way to go is to create a user with the same name that has full access to the database.
+
+Remember that database users are always created by specifying the location/hostname/IP of the user (aka the application server).
+
+However you can ignore this by specifying `*`
+
+database: games
+username: games
+password:ChangeMyPassword123
+hostname/IP if the application server: * 
+
+
+
+
 ## Installing PHP-mysql connector
 ```
 sudo apt install php7.4-mysqli
@@ -248,6 +287,9 @@ sudo gpa
 # Useful applications
 ## Tmux (terminal multiplexer)
 [hamvocke.com - quick and easy guide to tmux](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
+
+[Nice cheat-sheet MohamedAlaa@github](https://gist.github.com/MohamedAlaa/2961058)
+
 >Tmux allows you to split your terminal in many ways
 >
 ### Installation
@@ -263,10 +305,20 @@ Commands:
 `tmux attach -t 0` attaches to session id 0  
 `tmux attach -t monitoring` attaches to session with name "monitoring"  
 
+If tmux is running but you get the following error:
+
+>no server running on /tmp/tmux-1000/default
+
+`pkill -USR1 tmux`
+
+it works sometimes :)
+
+
+
 Keyboard shortcuts:  
+`ctrl + b + d` **disconnects** from the current session   
 `ctrl + b + %` splits screen vertically  
 `ctrl + b + "` splits screen horizontally  
-`ctrl + b + d` disconnects from the current session   
 `ctrl + b` then release the b-key and use arrows to resize window  
 
 Keyboard shortcut-commands:  
@@ -319,6 +371,20 @@ Useful arguments
 |-o|Only show active processes (that actually does I/O)|
 |-P|Show processes instead of threads|
 
+## htop
+>like top but better
+`apt install htop`
+
+## Glances
+>The best monitoring utility
+>Behaves smart
+>
+`apt install glances`
+
+![Glances picture](https://nicolargo.github.io/glances/public/images/screenshot-web.png)
+
+
+
 
 # Tips & tricks
 ## Searching for files - the find command
@@ -362,6 +428,10 @@ grep "authentication failure" /var/log/auth.log | awk '{ print $13 }' | cut -b7-
 ## awk
 https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
 
+## pstree
+`pstree -p`
+shows a tree structure of which processes spawned from where
+
 # Resources
 
 ## Cheat sheets
@@ -369,5 +439,182 @@ https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
 
 ![cs-page-1](https://i.ibb.co/hBFqC63/lin-cs-1.png)
 ![cs-page-2](https://i.ibb.co/xfyS17Y/lin-cs-2.png)
+
+# VSCode Remote SSH process memory problem
+If you use VSCode with the remote SSH plugin, you will sometimes see hanging processes even after you exit.
+These can take up a lot of memory when they pile up.
+The processes are spawned because VSCode tries to do some autocorrect stuff described [here](https://medium.com/good-robot/use-visual-studio-code-remote-ssh-sftp-without-crashing-your-server-a1dc2ef0936d)
+
+1. Hit the extensions button in VS Code (which looks like building blocks on the left toolbar)
+2. Search for ‘@builtin TypeScript’
+3. Disable the TypeScript and Javascript Language Features extension
+4. Reload
+
+# Bluetooth on Linux (bluetoothctl)
+`apt install bluez`
+
+`systemctl start bluetooth`
+
+All commands prepended by `bluetoothctl <command>` when done outside the interactive shell, otherwise you can do all the commands directly into the shell spawned by `bluetothctl`
+
+## Initial pairing
+`discoverable on`
+
+`scan on`
+
+`pair 78:2B:64:A2:F8:F1`
+
+`trust 78:2B:64:A2:F8:F1`
+
+If names do not show, try this:
+
+ `bluetoothctl devices | cut -f2 -d' ' | while read uuid; do bluetoothctl info $uuid; done|grep -e "Device\|Connected\|Name"`
+
+
+## Every time
+`connect 78:2B:64:A2:F8:F1`
+
+and when done:
+
+`disconnect`
+
+## Todo
+`power on`
+
+>This video is nice:
+
+[Youtube - BugsRider Bluetoth Guide](https://www.youtube.com/watch?v=Jhzqm8JKekk&ab_channel=BugsWriter)
+
+![IMG](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fstatic1.makeuseofimages.com%2Fwordpress%2Fwp-content%2Fuploads%2F2021%2F05%2Fcheck_bluetooth_service_status-1.png%3Fw%3D750%26is-pending-load%3D1%23038%3Bssl%3D1&f=1&nofb=1&ipt=86f480bac07e0884afa8c1ea6d781ae927adb1547b81d2e1f975e38391bc0cf9&ipo=images)
+
+
+# ls
+https://www.linuxcommands.site/linux-file-and-directory-commands/linux-ls-sort/
+
+
+# Mounting USB partition manually
+Identify USB-device
+lspci
+lsusb
+dmesg | less
+
+`sudo pmount /dev/sda1 /media/a`
+> partition now mounted
+
+
+# Setting up VPN over SSH with Python
+[VPN SSH Python guide](https://www.xmodulo.com/how-to-set-up-vpn-over-ssh-in-linux.html)
+```sh
+sudo apt-get install sshuttle
+sudo yum install git
+git clone git://github.com/apenwarr/sshuttle
+sudo sshuttle -r user@remote_host 0.0.0.0/0 --dns
+sudo sshuttle -r user@remote_host 172.194.0.0/16 172.195.0.0/16
+```
+
+# Neofetch (nice looking status motd)
+
+```sh
+apt install neofetch
+echo neofetch >> ~/.bash_profile # run automatically on login
+```
+
+# Desktop stuff
+## Redshift (blue light	filter)
+
+```sh
+apt install redshift
+mkdir ~/.config/redshift
+wget https://raw.githubusercontent.com/jonls/redshift/master/redshift.conf.sample
+mv redshift.conf.sample ~/.config/redshift/redshift.conf
+```
+
+# tcpdump
+
+[hackertarget.com examples](https://hackertarget.com/tcpdump-examples/)
+
+[cyberciti.biz](https://www.cyberciti.biz/faq/tcpdump-capture-record-protocols-port/)
+
+[tcpdump tutorial daniel miessler](https://danielmiessler.com/study/tcpdump/)
+
+[tcpdump cheat sheet by packetlife](https://packetlife.net/media/library/12/tcpdump.pdf)
+
+[tcpdump cheat sheet comapitech](https://cdn.comparitech.com/wp-content/uploads/2019/06/tcpdump-cheat-sheet.webp)
+
+# Pipe/redirecting output/etc | > >>
+
+redirect the output (AKA stdout) to a file:
+
+```sh
+SomeCommand > SomeFile.txt  
+```
+
+Or if you want to append data:
+
+```sh
+SomeCommand >> SomeFile.txt
+```
+
+
+If you want stderr as well use this:
+
+```sh
+SomeCommand &> SomeFile.txt  
+```
+
+or this to append:
+
+```sh
+SomeCommand &>> SomeFile.txt  
+```
+
+if you want to have both stderr and output displayed on the console and in a file use this:
+
+```sh
+SomeCommand 2>&1 | tee SomeFile.txt
+```
+
+(If you want the output only, drop the 2 above)
+
+
+# PostgresQL installation on Linux (Debian 11)
+
+First install 
+```sh
+sudo apt-get -y install postgresql
+```
+
+## Hostname get / set
+
+Display hostname: 
+
+```sh
+hostnamectl
+```
+
+Change hostname:
+
+```sh
+hostnamectl set-hostname <hostname> --static 
+```
+
+Update $PS1 variable in `~/.bashrc` if you want full hostname displayed in prompt
+
+|Variable|Value|
+|--|--|
+\h|hostname (short)
+\H|hostname (full)
+
+Update from \h to \H:
+```sh
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\H:\w\$ '
+fi
+```
+
+More commands: https://linuxhint.com/bash-ps1-customization/
+
 
 
