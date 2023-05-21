@@ -325,6 +325,7 @@ Keyboard shortcut-commands:
 `ctrl + b + :` to open the command prompt   
 ``` 
 :set-option -g mouse on
+:set -g default-terminal "screen-256color"
 :set-option history-file ~/.bash_history 
 :resize-pane -D (Resizes the current pane down)
 :resize-pane -U (Resizes the current pane upward)
