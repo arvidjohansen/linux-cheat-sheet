@@ -617,5 +617,13 @@ fi
 
 More commands: https://linuxhint.com/bash-ps1-customization/
 
+## Remote desktop client for Linux
+
+```console
+xfreerdp <ip>
+```
+
+
+
 
 
