@@ -623,6 +623,10 @@ More commands: https://linuxhint.com/bash-ps1-customization/
 xfreerdp <ip>
 ```
 
+## Changing desktop environment ( on Debian 11/12 )
+
+Very nice guide from https://linuxhint.com/change-debian-desktop-environment/
+
 
 
 
