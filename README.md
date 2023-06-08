@@ -628,6 +628,12 @@ xfreerdp <ip>
 Very nice guide from https://linuxhint.com/change-debian-desktop-environment/
 
 
+## WSL-stuff
 
+Command on Windows to forward port
+
+```
+netsh interface portproxy add v4tov4 listenport=4000 listenaddress=0.0.0.0 connectport=4000 connectaddress=192.168.101.100
+```
 
 
