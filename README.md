@@ -655,3 +655,13 @@ If you prefer to start Cinnamon manually from the console, add the following lin
 exec cinnamon-session
 ```
 
+## Debian-stuff (?)
+
+Choosing which desktop-environment to install can be done during the installation or by running the following command:
+
+```
+tasksel
+```
+
+
+
