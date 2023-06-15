@@ -642,3 +642,16 @@ netsh interface portproxy add v4tov4 listenport=4000 listenaddress=0.0.0.0 conne
 tar czf - <filename> | ssh <hostname> "cd <target-directory> && tar zxvf -"
 ```
 
+## Cinnamon stuff
+
+[Cinnamon on Archlinux Wiki](https://wiki.archlinux.org/title/cinnamon)
+
+Starting Cinnamon manually
+
+If you prefer to start Cinnamon manually from the console, add the following line to Xinitrc:
+
+```
+~/.xinitrc
+exec cinnamon-session
+```
+
