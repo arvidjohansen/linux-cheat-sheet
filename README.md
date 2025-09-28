@@ -664,4 +664,28 @@ tasksel
 ```
 
 
+# Libraries (common) 
+| Library        | Description                                                | How to Use (compile/link)                                     |
+| -------------- | ---------------------------------------------------------- | ------------------------------------------------------------- |
+| **glibc**      | Core C library (syscalls, I/O, memory, sockets)            | Included by default, headers `<stdio.h>`, `<stdlib.h>`.       |
+| **libm**       | Math functions (`sin`, `cos`, `sqrt`)                      | `#include <math.h>` → `gcc prog.c -lm`                        |
+| **libpthread** | POSIX threads                                              | `#include <pthread.h>` → `gcc prog.c -lpthread`               |
+| **libdl**      | Dynamic linking/loading of shared libs (`dlopen`, `dlsym`) | `#include <dlfcn.h>` → `gcc prog.c -ldl`                      |
+| **librt**      | Real-time (timers, POSIX semaphores, message queues)       | `#include <time.h>`, `<mqueue.h>` → `gcc prog.c -lrt`         |
+| **libstdc++**  | Standard C++ library (STL, streams)                        | Auto-linked by `g++`, can explicitly add `-lstdc++`           |
+| **libgcc**     | Low-level compiler support (exceptions, div ops)           | Auto-linked by GCC, no manual step                            |
+| **libcrypt**   | Password hashing, crypt functions                          | `#include <crypt.h>` → `gcc prog.c -lcrypt`                   |
+| **libnsl**     | Network services (RPC, NIS, legacy)                        | `#include <rpc/rpc.h>` → `gcc prog.c -lnsl`                   |
+| **libresolv**  | DNS resolver functions (`res_query`, `res_init`)           | `#include <resolv.h>` → `gcc prog.c -lresolv`                 |
+| **libutil**    | Misc. system utils (pty, login)                            | `#include <pty.h>` → `gcc prog.c -lutil`                      |
+| **libsystemd** | Interfaces with `systemd` (logging, services)              | `#include <systemd/sd-daemon.h>` → `gcc prog.c -lsystemd`     |
+| **libpam**     | Authentication via PAM modules                             | `#include <security/pam_appl.h>` → `gcc prog.c -lpam`         |
+| **libX11**     | X11 graphics client lib                                    | `#include <X11/Xlib.h>` → `gcc prog.c -lX11`                  |
+| **libwayland** | Wayland graphics protocol client lib                       | `#include <wayland-client.h>` → `gcc prog.c -lwayland-client` |
+| **libdrm**     | Direct Rendering Manager (GPU)                             | `#include <xf86drm.h>` → `gcc prog.c -ldrm`                   |
+| **libudev**    | Device enumeration & monitoring                            | `#include <libudev.h>` → `gcc prog.c -ludev`                  |
+| **libselinux** | SELinux security policies                                  | `#include <selinux/selinux.h>` → `gcc prog.c -lselinux`       |
+
+
+
 
