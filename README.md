@@ -14,6 +14,9 @@ and uncomment the following lines:
 ```
 
 ## Securing the system
+
+Consider using CaptainZero's fortress script here: https://github.com/captainzero93/security_harden_linux
+
 Thanks to NetworkChuck (https://www.youtube.com/watch?v=ZhMw53Ud2tY)
 
 ### Step 1: Enable automatic updates
