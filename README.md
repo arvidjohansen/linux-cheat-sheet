@@ -32,7 +32,7 @@ apt install unattended-upgrades
 dpkg-reconfigure --priority=low unattended-upgrades
 ``` 
 
-### Step 2: Create a limited user account
+### Step 2: Create a non-root user account (with sudo access)
 ```sh
 adduser {username}
 usermod -aG sudo {username}
@@ -50,7 +50,7 @@ ssh-keygen -b 4096
 3) Upload your Public key to the your Linux Server (Windows)
 
 ```sh
-scp $env:USERPROFILE/.ssh/id_rsa.pub {username}@{server ip}:~/.ssh/authorized_keys
+ssh-copy-id -i $env:USERPROFILE/.ssh/id_rsa.pub {username}@{server ip}
 ``` 
 
 ### Step 4: Lockdown Logins
